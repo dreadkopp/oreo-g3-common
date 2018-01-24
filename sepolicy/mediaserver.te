@@ -1,0 +1,5 @@
+allow mediaserver camera_prop:property_service set;
+#losos tests
+allow mediaserver camera_device:chr_file rw_file_perms;
+allow mediaserver audio_device:chr_file rw_file_perms;
+allow mediaserver system_file:file execmod;
