@@ -55,7 +55,7 @@ PRODUCT_COPY_FILES += \
 
 # Screen density
 PRODUCT_AAPT_CONFIG := normal
-PRODUCT_AAPT_PREF_CONFIG := xxhdpi
+PRODUCT_AAPT_PREF_CONFIG := 560dpi
 
 # Boot animation
 TARGET_BOOTANIMATION_HALF_RES := true
@@ -118,6 +118,10 @@ PRODUCT_PACKAGES += \
 # DRM
 PRODUCT_PACKAGES += \
     android.hardware.drm@1.0-impl
+
+# FlipFlap
+PRODUCT_PACKAGES += \
+    FlipFlap
 
 # IPv6 tethering
 PRODUCT_PACKAGES += \
@@ -229,10 +233,7 @@ PRODUCT_PACKAGES += \
 
 # Thermal
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/thermal-engine-8974.conf:system/vendor/etc/thermal-engine-8974.conf \
-    $(LOCAL_PATH)/configs/thermal-engine.conf:system/vendor/etc/thermal-engine.conf \
-    $(LOCAL_PATH)/configs/thermald.conf:system/vendor/etc/thermald.conf
-    $(LOCAL_PATH)/configs/thermald-8974.conf:system/vendor/etc/thermald-8974.conf
+    $(LOCAL_PATH)/configs/thermal-engine-8974.conf:system/vendor/etc/thermal-engine-8974.conf
 
 # USB
 PRODUCT_PACKAGES += \
@@ -253,8 +254,11 @@ PRODUCT_PACKAGES += \
     wpa_supplicant.conf
 
 
-#losos tests
+#losos Stuff
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     camera.disable_zsl_mode=1 \
     media.stagefright.legacyencoder=true \
     media.stagefright.less-secure=true
+
+
+LOCAL_CFLAGS += -DCAMCORDER_GRALLOC_SOURCE

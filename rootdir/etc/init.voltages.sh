@@ -1,4 +1,5 @@
 #!/bin/bash
+echo "starting losos script"
 base_voltages=(800 810 820 820 820 820 830 830 850 875 880 900 940 980 1040 1070 1120 1160 1200)
 
 psv=$(cat /sys/devices/system/soc/soc0/pvs_bin)
@@ -13,8 +14,12 @@ for i in "${base_voltages[@]}"; do
     voltages_corrected="$voltages_corrected $i"
 done
 
-while [ ! -f /sdcard/Losos/settings.conf ]; do
+BAILOUT=120
+
+#wait for /sdcard to get mounted. Bail out if file not exists after 2 mins 
+while [ ! -f /sdcard/Losos/settings.conf ] && [ $BAILOUT -lt 0 ]; do
         sleep 1
+        let BAILOUT=$BAILOUT-1
 done
 
 if grep -Fxq "undervolt" /sdcard/Losos/settings.conf
@@ -38,7 +43,7 @@ fi
 if grep -Fxq "powersave" /sdcard/Losos/settings.conf
 then
   MAX_FREQ=1497600
-  GOV="powersave"
+  GOV="ondemand"
 fi
 
 echo 0 > /sys/module/msm_thermal/core_control/enabled
@@ -57,4 +62,3 @@ echo $GOV > /sys/devices/system/cpu/cpu3/cpufreq/scaling_governor
 #apply input_boost_freq
 
 echo 1036800 > /sys/module/cpu_boost/parameters/input_boost_freq
-

@@ -62,12 +62,12 @@
          The brightness values must be between 0 and 255 and be non-decreasing.
          This must be overridden in platform specific overlays -->
     <integer-array name="config_autoBrightnessLcdBacklightValues">
-        <item>50</item>
-        <item>72</item>
-        <item>85</item>
-        <item>106</item>
-        <item>121</item>
-        <item>129</item>
+        <item>20</item>
+        <item>32</item>
+        <item>45</item>
+        <item>76</item>
+        <item>91</item>
+        <item>100</item>
         <item>161</item>
         <item>174</item>
         <item>204</item>
@@ -100,7 +100,7 @@
 
     <!-- Default screen brightness setting.
          Must be in the range specified by minimum and maximum. -->
-    <integer name="config_screenBrightnessSettingDefault">82</integer>
+    <integer name="config_screenBrightnessSettingDefault">60</integer>
 
     <!-- Minimum screen brightness setting allowed by the power manager.
          The user is forbidden from setting the brightness below this level. -->

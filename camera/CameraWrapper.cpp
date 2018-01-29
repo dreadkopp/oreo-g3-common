@@ -473,7 +473,7 @@ static int camera_start_recording(struct camera_device *device)
     if (!device)
         return EINVAL;
 
-    ALOGV("%s->%08X->%08X", __FUNCTION__, (uintptr_t)device,
+    ALOGW("%s->%08X->%08X", __FUNCTION__, (uintptr_t)device,
             (uintptr_t)(((wrapper_camera_device_t*)device)->vendor));
 
     android::CameraParameters parameters;
@@ -487,8 +487,8 @@ static int camera_start_recording(struct camera_device *device)
     android::CameraParameters parameters2;
     parameters2.unflatten(android::String8(VENDOR_CALL(device, get_parameters)));
     parameters2.dump();
-    
-    ALOGV("start recording with device %s", device);
+
+    ALOGW("start recording with device %s", device);
 
     return VENDOR_CALL(device, start_recording);
 }
