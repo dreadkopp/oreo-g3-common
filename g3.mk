@@ -229,13 +229,7 @@ PRODUCT_PACKAGES += \
 
 # Thermal
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/thermal-engine-8974.conf:system/vendor/etc/thermal-engine-8974.conf
-
-
-PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/thermal-engine-8974.conf:system/vendor/etc/thermal-engine-8974.conf \
-    $(LOCAL_PATH)/configs/thermal-engine.conf:system/vendor/etc/thermal-engine.conf \		
-    $(LOCAL_PATH)/configs/thermald.conf:system/vendor/etc/thermald.conf	\
     $(LOCAL_PATH)/configs/thermald-8974.conf:system/vendor/etc/thermald-8974.conf
 
 # USB
