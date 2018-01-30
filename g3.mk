@@ -259,3 +259,13 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
 
 
 LOCAL_CFLAGS += -DCAMCORDER_GRALLOC_SOURCE
+
+
+
+# DU Utils Library
+PRODUCT_BOOT_JARS += \
+    org.dirtyunicorns.utils
+
+# DU Utils Package
+PRODUCT_PACKAGES += \
+    org.dirtyunicorns.utils
