@@ -14,6 +14,28 @@
 # limitations under the License.
 #
 
+
+
+#Add stuff:
+PRODUCT_PACKAGES += \
+			Terminal \
+			EvieLauncher \
+			Brave \
+			SwiftKey \
+			Substratum \
+			TVRemote \
+			Clock \
+			ClockWidget \
+			Music \
+			Weather \
+			LososConfigurator \
+			DU-Tweaks \
+			Adaway \
+			Mail \
+			STC \
+			DarkTheme \
+
+
 $(call inherit-product-if-exists, vendor/lge/g3-common/g3-common-vendor.mk)
 
 # Overlay
@@ -212,7 +234,7 @@ PRODUCT_PACKAGES += \
     init.class_main.sh \
     init.sensors.sh \
     ueventd.g3.rc \
-    init.voltages.sh	
+    init.voltages.sh
 
 # RenderScript HAL
 PRODUCT_PACKAGES += \
@@ -255,7 +277,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     camera.disable_zsl_mode=1 \
     media.stagefright.legacyencoder=true \
-    media.stagefright.less-secure=true
+    media.stagefright.less-secure=true \
+		ro.adb.secure=0 \
+		ro.secure=0 \
+		persist.sys.usb.config=mtp,adb
 
 
 LOCAL_CFLAGS += -DCAMCORDER_GRALLOC_SOURCE
@@ -264,8 +289,8 @@ LOCAL_CFLAGS += -DCAMCORDER_GRALLOC_SOURCE
 
 # DU Utils Library
 PRODUCT_BOOT_JARS += \
-    org.dirtyunicorns.utils
+    org.dirtyunicorns.utils \
 
 # DU Utils Package
 PRODUCT_PACKAGES += \
-    org.dirtyunicorns.utils
+    org.dirtyunicorns.utils \
