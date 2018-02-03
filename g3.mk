@@ -294,3 +294,8 @@ PRODUCT_BOOT_JARS += \
 # DU Utils Package
 PRODUCT_PACKAGES += \
     org.dirtyunicorns.utils \
+    
+    
+#disable bloody lineage-sdk
+
+TARGET_DISABLE_LINEAGE_SDK := true
